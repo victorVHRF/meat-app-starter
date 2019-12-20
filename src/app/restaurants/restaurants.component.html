@@ -1,0 +1,17 @@
+<!-- INÍCIO DO CONTEÚDO -->
+<section class="content-header">
+  <h1>
+    Todos os Restaurantes
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-6" *ngFor="let restaurant of restaurants">
+      <mt-restaurant [restaurant]="restaurant"></mt-restaurant>
+      <!-- FIM DO CARRINHO -->
+    </div>
+    <!-- FIM DO MENU -->
+  </div>
+
+</section>
+<!-- FIM DO CONTEÚDO -->
