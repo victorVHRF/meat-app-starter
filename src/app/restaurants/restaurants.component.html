@@ -1,4 +1,4 @@
-<!-- INÍCIO DO CONTEÚDO -->
+<!-- INíCIO do CONTEÚDO -->
 <section class="content-header">
   <h1>
     Todos os Restaurantes
@@ -6,12 +6,16 @@
 </section>
 <section class="content">
   <div class="row">
-    <div class="col-xs-6" *ngFor="let restaurant of restaurants">
+    <div *ngFor="let restaurant of restaurants" class="col-sm-6 col-xs-12">
       <mt-restaurant [restaurant]="restaurant"></mt-restaurant>
-      <!-- FIM DO CARRINHO -->
     </div>
-    <!-- FIM DO MENU -->
+    <div *ngIf="restaurants?.length === 0" class="col-xs-12">
+      <p class="lead text-center">
+        Não foram encontrados itens para a sua busca.
+      </p>
+    </div>
   </div>
 
 </section>
-<!-- FIM DO CONTEÚDO -->
+
+<!-- FIM  do CONTEÚDO -->
