@@ -19,5 +19,5 @@ var options = {
     key: fs.readFileSync('backend/keys/key.pem')
 };
 https.createServer(options, server).listen(3001, function () {
-    console.log('JSON Server is running ib hhtps://localhost:3001');
+    console.log('JSON Server is running ib https://localhost:3001');
 });

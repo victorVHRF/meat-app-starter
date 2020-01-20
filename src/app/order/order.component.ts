@@ -16,7 +16,8 @@ export class OrderComponent implements OnInit {
     orderForm: FormGroup;
     emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     numberPattern = /^[0-9]*$/;
-    delivery: number = 8
+    delivery: number = 8;
+    orderId: string;
 
   paymentOptions: RadioOption[] = [
     {label: 'Dinehiro' , value: 'MON'},
@@ -68,15 +69,21 @@ export class OrderComponent implements OnInit {
    remove(item: CartItem) {
     this.orderServivce.remove(item);
    }
+
+   isOrderCompleted(): boolean {
+      return this.orderId !== undefined;
+   }
     checkOrder(order: Order) {
         order.orderItems = this.cartItems()
             .map((item: CartItem) => new OrderItem(item.quantity, item.menuItem.id));
         this.orderServivce.checkOrder(order)
+            .do((orderId: string) => {
+                this.orderId = orderId;
+            })
             .subscribe((orderId: string) => {
                 this.router.navigate(['/order-summary']);
             console.log(`Compra concluida ${orderId}`);
             this.orderServivce.clear();
         });
-        console.log(order);
     }
 }

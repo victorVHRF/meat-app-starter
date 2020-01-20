@@ -21,6 +21,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
+import {LoginComponent} from './security/login/login.component';
+import {UserDetailComponent} from './header/user-detail/user-detail.component';
 
 
 
@@ -44,6 +46,8 @@ import {HttpClientModule} from '@angular/common/http';
     ReviewsComponent,
     OrderSummaryComponent,
     NotFoundComponent,
+    LoginComponent,
+    UserDetailComponent,
   ],
   imports: [
     BrowserModule,
